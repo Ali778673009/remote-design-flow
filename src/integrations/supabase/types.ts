@@ -162,6 +162,14 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      audit_sensitive_operation: {
+        Args: { operation_type: string; details?: Json }
+        Returns: string
+      }
+      get_user_role: {
+        Args: { user_id: string }
+        Returns: string
+      }
       send_notification: {
         Args: {
           p_user_id: string
@@ -171,6 +179,10 @@ export type Database = {
           p_task_id?: string
         }
         Returns: string
+      }
+      update_user_role: {
+        Args: { target_user_id: string; new_role: string }
+        Returns: boolean
       }
     }
     Enums: {
